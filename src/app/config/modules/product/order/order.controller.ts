@@ -41,7 +41,7 @@ export const OrderController = {
         });
       }
 
-      // Create a new order
+      // Create a new order-
       const newOrder = new Order({
         email,
         productId,
