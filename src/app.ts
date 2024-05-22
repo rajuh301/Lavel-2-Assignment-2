@@ -25,7 +25,7 @@ app.use((req: Request, res: Response) => {
   });
 });
 
-// Error Handling Middleware-----
+// Error Handling Middleware-------
 // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
 app.use((err: Error, req: Request, res: Response, _next: NextFunction) => {
   // console.error(err.stack);
