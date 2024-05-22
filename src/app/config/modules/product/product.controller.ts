@@ -92,6 +92,7 @@ const getAllProduct = async (req: Request, res: Response) => {
     if (searchTerm) {
       products = await Product.find({
         name: { $regex: searchTerm, $options: 'i' },
+        isDeleted: { $ne: true },
       });
       res.status(200).json({
         success: true,
@@ -121,6 +122,13 @@ const getSingleProduct = async (req: Request, res: Response) => {
   try {
     const { productId } = req.params;
     const result = await ProductServeces.getSingleProductFromDB(productId);
+
+    if (!result || result.isDeleted) {
+      return res.status(404).json({
+        success: false,
+        message: 'Product not found',
+      });
+    }
 
     res.status(200).json({
       success: true,
@@ -170,5 +178,4 @@ export const ProductController = {
   getSingleProduct,
   deleteProduct,
   updateProduct,
-  // searchProducts,
 };
