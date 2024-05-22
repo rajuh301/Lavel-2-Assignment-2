@@ -100,7 +100,7 @@ const getAllProduct = async (req: Request, res: Response) => {
         data: products,
       });
     } else {
-      products = await Product.find();
+      products = await Product.find({ isDeleted: { $ne: true } });
       res.status(200).json({
         success: true,
         messgae: 'Products fetched successfully!',
