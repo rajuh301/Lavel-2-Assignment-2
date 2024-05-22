@@ -10,7 +10,7 @@ route.delete('/products/:productId', ProductController.deleteProduct);
 route.put('/products/:productId', ProductController.updateProduct);
 route.get('/products', ProductController.getAllProduct);
 
-// -------------------- Order------------------------
+// -------------------- Order--------------------------
 route.post('/orders', OrderController.createOrder);
 route.get('/orders', OrderController.getAllOrders);
 
